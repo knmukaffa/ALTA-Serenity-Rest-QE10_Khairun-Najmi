@@ -5,6 +5,7 @@ Feature: Login user API Automation
     Given Post login user with valid json
     When Send post login user
     Then Status code should be 200 OK
+    And Response body token should be "QpwL5tke4Pnpja7X4"
     And Validate post login user JSON Schema
 
   @Tugas

@@ -8,8 +8,9 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.Reqres.ReqresAPI;
+import starter.Reqres.ReqresResponses;
 import starter.Utils.Constants;
-
+import static org.hamcrest.Matchers.equalTo;
 import java.io.File;
 
 public class RegisterUserStepDef {
@@ -44,5 +45,10 @@ public class RegisterUserStepDef {
     public void validatePostUnsuccessfulRegisterUserJSONSchema() {
         File json = new File(Constants.JSON_SCHEMA_DIR+"RegisterUserUnsuccessfulJSONSchema.json");
         SerenityRest.and().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
+    }
+
+    @And("Response body token should be {string} and id {int}")
+    public void responseBodyTokenShouldBeAndId(String token, int id) {
+        SerenityRest.and().body(ReqresResponses.TOKEN,equalTo(token)).body(ReqresResponses.ID,equalTo(id));
     }
 }

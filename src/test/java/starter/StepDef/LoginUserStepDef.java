@@ -10,6 +10,8 @@ import starter.Reqres.ReqresAPI;
 import starter.Reqres.ReqresResponses;
 import starter.Utils.Constants;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+
 import java.io.File;
 
 public class LoginUserStepDef {
@@ -36,7 +38,10 @@ public class LoginUserStepDef {
         File json = new File(Constants.JSON_SCHEMA_DIR+"LoginUserJSONSchema.json");
         SerenityRest.and().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
-
+    @And("Response body token should be {string}")
+    public void responseBodyTokenShouldBe(String token) {
+        SerenityRest.and().body(ReqresResponses.TOKEN,equalTo(token));
+    }
     @And("Response body page should be error {string}")
     public void responseBodyPageShouldBeError(String massage) {
         SerenityRest.and().body(ReqresResponses.ERROR_MASSAGE,equalTo(massage));

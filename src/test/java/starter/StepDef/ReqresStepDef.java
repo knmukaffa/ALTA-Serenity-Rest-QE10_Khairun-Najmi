@@ -32,7 +32,7 @@ public class ReqresStepDef {
     }
     @And("Response body page should be page {int}")
     public void responseBodyPageShouldBePage(int page) {
-        SerenityRest.and().body("page",equalTo(page));
+        SerenityRest.and().body(ReqresResponses.PAGE,equalTo(page));
     }
     @And("Validate get list user JSON Schema")
     public void validateGetListUserJSONSchema() {

@@ -22,12 +22,12 @@ public class GetSingleUserStepDef {
     public void getSingleUserWithValidParameterId(int id){
         reqresAPI.getSingleUserValidParamId(id);
     }
-    @Given("Get single user with invalid parameter id {int}")
+    @Given("Get single user with exceed parameter id {int}")
     public void getSingleUserWithInvalidParameterId(int id){
         reqresAPI.getSingleUserValidParamId(id);
     }
-    @Given("Get single user with invalid parameter id {string} filled with string")
-    public void getSingleUserWithInvalidParameterIdFilledWithString(String id) {
+    @Given("Get single user with invalid parameter id {string}")
+    public void getSingleUserWithInvalidParameterId(String id) {
         reqresAPI.getSingleUserInvalidParamId(id);
     }
     @When("Send get single user")

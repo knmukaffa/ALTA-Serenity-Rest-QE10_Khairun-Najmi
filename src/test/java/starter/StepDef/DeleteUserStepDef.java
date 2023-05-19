@@ -18,4 +18,9 @@ public class DeleteUserStepDef {
     public void statusCodeShouldBeNotFound(int notFound) {
         SerenityRest.then().statusCode(notFound);
     }
+
+    @Given("Delete user with exceed parameter id {int}")
+    public void deleteUserWithExceedParameterId(int id) {
+        reqresAPI.deleteUser(id);
+    }
 }
