@@ -49,6 +49,6 @@ public class RegisterUserStepDef {
 
     @And("Response body token should be {string} and id {int}")
     public void responseBodyTokenShouldBeAndId(String token, int id) {
-        SerenityRest.and().body(ReqresResponses.TOKEN,equalTo(token)).body(ReqresResponses.ID,equalTo(id));
+        SerenityRest.and().body(ReqresResponses.TOKEN,equalTo(token)).body(ReqresResponses.DATA_ID_ARRAY,equalTo(id));
     }
 }

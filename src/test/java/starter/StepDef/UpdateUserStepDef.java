@@ -13,7 +13,7 @@ public class UpdateUserStepDef {
     @Steps
     ReqresAPI reqresAPI;
 
-    @Given("Put update user with valid json and invalid id {int}")
+    @Given("Put update user with valid json and exceed id {int}")
     public void  putUpdateUserWithValidJsonAndInvalidId(int id){
         File json = new File(Constants.REQ_BODY_DIR+"UserReqBody.json");
         reqresAPI.putUpdateUser(id, json);
@@ -25,7 +25,7 @@ public class UpdateUserStepDef {
         reqresAPI.putUpdateUser(id, json);
     }
 
-    @Given("Put update user with invalid json and id {int}")
+    @Given("Put update user with invalid json and exceed id {int}")
     public void  putUpdateUserWithInvalidJsonAndId(int id){
         File json = new File(Constants.REQ_BODY_DIR+"UpdateInvalidBody.json");
         reqresAPI.putUpdateUser(id, json);
